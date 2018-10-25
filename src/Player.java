@@ -42,11 +42,11 @@ public class Player{
     }
     public void upgradeBlock(int id){
         Block block=getBlock(id);
-        if(block==null || block.cap==30 || gills<Math.pow(500,(block.cap-15)/5+1)){
+        if(block==null || block.cap==25 || gills<block.upgradeCost()){
             System.out.println("not possible");
             return;
         }
-        gills-=Math.pow(500,(block.cap-15)/5+1);
+        gills-=block.upgradeCost();
         block.cap+=5;
     }
     public double getScore(){
@@ -83,6 +83,7 @@ public class Player{
         if(unit instanceof Army){
             army=null;
         }
+
         gills-=block.removeUnit(unitId);
     }
     public void upgradeUnit(int blockId,int unitId){
@@ -90,22 +91,37 @@ public class Player{
         if(block==null){
             System.out.println("not possible");
         }
-        Unit unit=block.getUnit(unitId);
-        if(unit instanceof Workplace){
-            Workplace job=(Workplace)unit;
-            if(job.level>=job.maxLevel){
-                System.out.println("not possible");
-                return;
-            }
+        Workplace unit=(Workplace)block.getUnit(unitId);
+        if(unit.level>=unit.maxLevel){
+            System.out.println("not possible");
+            return;
         }
-        if(unit==null && unit.upgradeCost()<=gills){
+        if(unit!=null && unit.upgradeCost()<=gills){
             gills-=unit.upgradeCost();
             unit.upgrade();
             return;
         }
         System.out.println("not possible");
     }
-    
+    public void upgradeHome(int blockId,int unitId,int floor,int units){
+        Block block=getBlock(blockId);
+        if(block==null){
+            System.out.println("not possible");
+        }
+        Home unit=(Home)block.getUnit(unitId);
+        if(unit!=null && gills>=unit.upgradeCost(floor,units)){
+            
+        }
+        else{
+
+        }
+    }
+    public void attack(int blockId){
+
+    }
+    public void loot(int blockId){
+
+    }
 
 
 }
