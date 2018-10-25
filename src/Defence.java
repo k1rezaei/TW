@@ -9,11 +9,11 @@ public class Defence extends Workplace {
         return ;
     }
 
-    public static int upgradeCost() {
+    public int upgradeCost() {
         return UPGRADE_COST;
     }
 
-    public static int addCost () {
+    public int addCost () {
         return ADD_COST;
     }
 

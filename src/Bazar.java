@@ -14,7 +14,7 @@ public class Bazar extends Workplace{
         return (level + 1) * UPGRADE_COST;
     }
 
-    public static int addCost () {
+    public int addCost () {
         return ADD_COST;
     }
 
