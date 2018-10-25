@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-public class Workplace {
-    public ArrayList<Integer> upgradeDates = new ArrayList<Integer>();
+public class Workplace extends Unit {
+    public ArrayList<Integer> upgradeDates = new ArrayList<>();
     public int level = 0, initialScore, initialWorker, deltaWorker;
 
     public Workplace(int initialScore, int initialWorker, int deltaWorker) {
