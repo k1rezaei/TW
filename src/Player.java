@@ -28,5 +28,12 @@ public class Player{
         }
         System.out.println("not possible");
     }
+    double getScore(){
+        double ret=0;
+        for(Block block:blocks){
+            ret+=block.getScore();
+        }
+        return ret;
+    }
 
 }
