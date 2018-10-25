@@ -137,7 +137,8 @@ public class Player {
     public void attack(int blockId) {
         Player other = Game.players[1 - Game.turn];
         Block block = other.getBlock(blockId);
-        if (gills >= 5000 && army != null && block != null && (block.defence == null || (block.defence.level < army.level))) {
+        if (gills >= 5000 && army != null && block != null &&
+                (block.defence == null || (block.defence.level < army.level))) {
             baseScore += block.getScore();
             other.removeBlock(blockId);
             other.gills -= 500;
