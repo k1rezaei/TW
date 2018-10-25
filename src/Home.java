@@ -11,8 +11,8 @@ public class Home extends Unit{
         return  addedFloor*300 + addedFloor * (numberOfUnits + addedUnit)* 50 + addedUnit * numberOfFloors * 50;
     }
 
-    public int addCost(int numOfFloors,int numOfUnits){
-        return  numOfUnits * 100 + numOfFloors * 300 + 700;
+    public int addCost(){
+        return  numberOfUnits * numberOfFloors * 100 + numberOfFloors * 300 + 700;
     }
 
     public void upgrade(int numOfFloors,int numOfUnits){
