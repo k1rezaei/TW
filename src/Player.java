@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Player{
     public Army army=null;
     public int gills =30000;
+    public double baseScore=0;
     public ArrayList<Block> blocks=new ArrayList<>();
     public int getNextId(){
         int mx=0;
@@ -50,7 +51,7 @@ public class Player{
         block.cap+=5;
     }
     public double getScore(){
-        double ret=0;
+        double ret=baseScore;
         for(Block block:blocks){
             ret+=block.getScore();
         }
@@ -83,7 +84,10 @@ public class Player{
         if(unit instanceof Army){
             army=null;
         }
-
+        if(unit instanceof  Bazar && gills<500){
+            System.out.println("not possible");
+            return;
+        }
         gills-=block.removeUnit(unitId);
     }
     public void upgradeUnit(int blockId,int unitId){
@@ -118,6 +122,16 @@ public class Player{
         }
     }
     public void attack(int blockId){
+        if(gills<5000){
+            System.out.println("not possible");
+            return;
+        }
+        Player other=Game.players[1-Game.turn];
+        Block block=other.getBlock(blockId);
+        if(block==null){
+            System.out.println("not possible");
+            return;
+        }
 
     }
     public void loot(int blockId){
