@@ -22,7 +22,7 @@ public class Home extends Unit{
 
     public void upgrade () {}
 
-    double getScore(){
+    public double getScore(){
         int person = parBlock.getMultiplier();
         int sumPerson = 5*person;
         int unit = 2+sumPerson;
