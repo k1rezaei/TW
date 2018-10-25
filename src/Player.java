@@ -132,11 +132,20 @@ public class Player{
             System.out.println("not possible");
             return;
         }
-
+        baseScore+=block.getScore();
+        other.removeBlock(blockId);
     }
     public void loot(int blockId){
 
     }
+    public int getIncome(){
+        int income=0;
+        for(Block block :blocks){
+            income+=block.getIncome();
+        }
+        return income;
+    }
+
 
 
 }
