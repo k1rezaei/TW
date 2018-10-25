@@ -12,7 +12,7 @@ public class Game {
         while(true){
 
             String str = scanner.nextLine();
-            String input[] = str.split(str," ");
+            String input[] = str.split(" ");
 
             /// to lower_case??
             if(input[0].equals("yield")){

@@ -23,13 +23,13 @@ public class Home extends Unit{
     public void upgrade () {}
 
     public double getScore(){
-        int person = parBlock.getMultiplier();
-        int sumPerson = 5*person;
-        int unit = 2+sumPerson;
-        int sumUnit = numberOfUnits*unit;
-        int floor = 3+sumUnit+sumPerson*2;
-        int sumFloor = floor*numberOfFloors;
-        int home = 10+sumFloor+sumUnit*2+sumPerson*3;
+        double person = parBlock.getMultiplier();
+        double sumPerson = 5*person;
+        double unit = 2+sumPerson;
+        double sumUnit = numberOfUnits*unit;
+        double floor = 3+sumUnit+sumPerson*2;
+        double sumFloor = floor*numberOfFloors;
+        double home = 10+sumFloor+sumUnit*2+sumPerson*3;
         return home;
     }
 
