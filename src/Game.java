@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Game {
     static int days;
     static int turn;
-    static int[] players = new Player[2];
+    static Player[] players = new Player[2];
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
