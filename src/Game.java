@@ -17,19 +17,23 @@ public class Game {
 
             /// to lower_case??
             if (input[0].equals("yield")) {
-                System.out.print(players[0].getScore());
-                System.out.println(" ");
-                System.out.println(players[1].getScore());
+                System.out.printf("%.2f", players[0].getScore());
+                System.out.print(" ");
+                System.out.printf("%.2f\n", players[1].getScore());
                 break;
             }
             if (input[0].equals("done")) {
+                //System.err.println("FUCK");
                 players[turn].gills += players[turn].getIncome();
                 turn++;
                 turn %= 2;
                 if (turn == 0) days++;
             }
-            if (input[0].equals("see gills")) {
+            if (input.length == 2 && input[0].equals("see") && input[1].equals("gills")) {
                 System.out.println(players[turn].gills);
+            }
+            if (input.length == 2 && input[0].equals("see") && input[1].equals("score")) {
+                System.out.printf("%.2f\n", players[turn].getScore());
             }
             if (input[0].equals("loot")) {
                 players[turn].loot(Integer.parseInt(input[1]));
@@ -46,6 +50,10 @@ public class Game {
                     if (input[1].equals("home")) {
                         int numberOfFloors = Integer.parseInt(input[3]);
                         int numberOfUnits = Integer.parseInt(input[4]);
+                        if(numberOfFloors < 3 || numberOfFloors > 6 || numberOfUnits < 1 || numberOfUnits > 4){
+                            System.out.println("not possible");
+                            continue ;
+                        }
                         unit = new Home(numberOfFloors, numberOfUnits);
                     } else if (input[1].equals("bazaar")) {
                         unit = new Bazar();

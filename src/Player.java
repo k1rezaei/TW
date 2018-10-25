@@ -15,8 +15,8 @@ public class Player {
     }
 
     public void addBlock() {
-        if (gills >= 500) {
-            gills -= 500;
+        if (gills >= 1000) {
+            gills -= 1000;
             int id = getNextId();
             Block block = new Block(id);
             blocks.add(block);

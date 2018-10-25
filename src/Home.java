@@ -28,10 +28,10 @@ public class Home extends Unit {
         double sumPerson = 5 * person;
         double unit = 2 + sumPerson;
         double sumUnit = numberOfUnits * unit;
-        double floor = 3 + sumUnit + sumPerson * 2;
+        double floor = 3 + sumUnit + sumPerson * numberOfUnits * 2;
         double sumFloor = floor * numberOfFloors;
-        double home = 10 + sumFloor + sumUnit * 2 + sumPerson * 3;
-        return home;
+        double home = 10 + sumFloor +  numberOfFloors * sumUnit * 2 +  numberOfUnits * numberOfFloors * sumPerson * 3;
+        return home+sumFloor+sumUnit*numberOfFloors+sumPerson*numberOfFloors*numberOfUnits;
     }
 
     public int remove() {
