@@ -110,10 +110,11 @@ public class Player{
         }
         Home unit=(Home)block.getUnit(unitId);
         if(unit!=null && gills>=unit.upgradeCost(floor,units)){
-            
+            gills-=unit.upgradeCost(floor,units);
+            unit.upgrade();
         }
         else{
-
+            System.out.println("not possible");
         }
     }
     public void attack(int blockId){
