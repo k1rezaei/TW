@@ -141,7 +141,7 @@ public class Player {
             baseScore += block.getScore();
             other.removeBlock(blockId);
             other.gills -= 500;
-            gills-=5000;
+            gills -= 5000;
         } else {
             System.out.println("not possible");
             return;
