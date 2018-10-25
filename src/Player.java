@@ -1,4 +1,3 @@
-import java.lang.Math;
 import java.util.ArrayList;
 
 public class Player {
@@ -89,12 +88,13 @@ public class Player {
         Block block = getBlock(blockId);
         if (block == null) {
             System.out.println("not possible");
+            return;
         }
         Unit unit = block.getUnit(unitId);
         if (unit instanceof Army) {
             army = null;
         }
-        if (unit instanceof Bazar && gills < 500) {
+        if ((unit instanceof Bazar) && gills < 500) {
             System.out.println("not possible");
             return;
         }
