@@ -2,7 +2,7 @@ public class Unit {
     public int id = -1;
     public Block parBlock = null;
 
-    public int AddCost(){ return 0; }
+    public int addCost(){ return 0; }
 
     public int upgradeCost() { return 0; }
 
