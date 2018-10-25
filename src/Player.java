@@ -107,11 +107,7 @@ public class Player {
             System.out.println("not possible");
         }
         Workplace work = (Workplace) (block.getUnit(unitId));
-        if (work.level >= work.maxLevel) {
-            System.out.println("not possible");
-            return;
-        }
-        if (work != null && work.upgradeCost() <= gills) {
+        if (work != null && work.level < work.maxLevel && work.upgradeCost() <= gills) {
             gills -= work.upgradeCost();
             work.upgrade();
             return;
@@ -142,10 +138,9 @@ public class Player {
             baseScore += block.getScore();
             other.removeBlock(blockId);
             other.gills -= 500;
-            gills-=5000;
+            gills -= 5000;
         } else {
             System.out.println("not possible");
-            return;
         }
     }
 
@@ -156,7 +151,6 @@ public class Player {
             gills += 500 * block.units.size();
         } else {
             System.out.println("not possible");
-            return;
         }
     }
 
