@@ -17,9 +17,9 @@ public class Game {
 
             /// to lower_case??
             if (input[0].equals("yield")) {
-                System.out.printf("%.2f", players[0].getScore());
+                System.out.printf("%.2f", players[turn].getScore());
                 System.out.print(" ");
-                System.out.printf("%.2f\n", players[1].getScore());
+                System.out.printf("%.2f\n", players[1 - turn].getScore());
                 break;
             }
             if (input[0].equals("done")) {
