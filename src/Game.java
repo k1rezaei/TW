@@ -6,6 +6,8 @@ public class Game {
     static Player[] players = new Player[2];
 
     public static void main(String[] args) {
+        players[0] = new Player();
+        players[1] = new Player();
         Scanner scanner = new Scanner(System.in);
         while (true) {
 
