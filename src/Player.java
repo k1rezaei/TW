@@ -34,7 +34,7 @@ public class Player{
     public void removeBlock(int id){
         Block block =getBlock(id);
         if(block!=null){
-            gills+=500;
+            gills-=block.remove();
             blocks.remove(block);
             return;
         }
@@ -42,10 +42,12 @@ public class Player{
     }
     public void upgradeBlock(int id){
         Block block=getBlock(id);
-        if(block==null || block.cap==30 || gills<Math.pow(500,(block.cap-15)/5)){
+        if(block==null || block.cap==30 || gills<Math.pow(500,(block.cap-15)/5+1)){
             System.out.println("not possible");
             return;
         }
+        gills-=Math.pow(500,(block.cap-15)/5+1);
+        block.cap+=5;
     }
     public double getScore(){
         double ret=0;
@@ -56,9 +58,18 @@ public class Player{
     }
     public void addUnit(int blockId,Unit unit){
         Block block=getBlock(blockId);
-        if(block==null || unit.addCost()>gills || block.units.size()>block.cap){
+        if(block==null || unit.addCost()>gills || block.units.size()>=block.cap){
             System.out.println("not possible");
             return;
+        }
+        if(unit instanceof  Army){
+            if(army==null){
+                army=(Army)unit;
+            }
+            else{
+                System.out.println("not possible");
+                return;
+            }
         }
         gills-=unit.addCost();
         block.addUnit(unit);
@@ -68,6 +79,10 @@ public class Player{
         if(block==null){
             System.out.println("not possible");
         }
+        Unit unit =block.getUnit(unitId);
+        if(unit instanceof Army){
+            army=null;
+        }
         gills-=block.removeUnit(unitId);
     }
     public void upgradeUnit(int blockId,int unitId){
@@ -76,14 +91,21 @@ public class Player{
             System.out.println("not possible");
         }
         Unit unit=block.getUnit(unitId);
+        if(unit instanceof Workplace){
+            Workplace job=(Workplace)unit;
+            if(job.level>=job.maxLevel){
+                System.out.println("not possible");
+                return;
+            }
+        }
         if(unit==null && unit.upgradeCost()<=gills){
             gills-=unit.upgradeCost();
             unit.upgrade();
             return;
         }
         System.out.println("not possible");
-
     }
+    
 
 
 }

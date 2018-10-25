@@ -2,10 +2,9 @@ public class Army extends Workplace{
     private static final int UPGRADE_COST =  20000;
     private static final int ADD_COST = 15000;
     private static final int REMOVE_COST = -10000;
-    public static final int MAX_LEVEL = 5;
 
     public Army() {
-        super(10, 100, 10);
+        super(10, 100, 10,5);
         return ;
     }
 

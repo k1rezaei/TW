@@ -2,12 +2,13 @@ import java.util.ArrayList;
 
 public class Workplace extends Unit {
     public ArrayList<Integer> upgradeDates = new ArrayList<>();
-    public int level = 0, initialScore, initialWorker, deltaWorker;
+    public int level = 0, initialScore, initialWorker, deltaWorker,maxLevel;
 
-    public Workplace(int initialScore, int initialWorker, int deltaWorker) {
+    public Workplace(int initialScore, int initialWorker, int deltaWorker,int maxLevel) {
         this.initialScore = initialScore;
         this.initialWorker = initialWorker;
         this.deltaWorker = deltaWorker;
+        this.maxLevel=maxLevel;
         this.level = 1;
         upgradeDates.add(Game.days);
         return ;
