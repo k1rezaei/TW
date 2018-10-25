@@ -8,6 +8,7 @@ public class Workplace {
         this.initialScore = initialScore;
         this.initialWorker = initialWorker;
         this.deltaWorker = deltaWorker;
+        this.level = 1;
         upgradeDates.add(Game.days);
         return ;
     }
