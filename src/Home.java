@@ -2,26 +2,22 @@ public class Home {
     int numberOfUnits=0;
     int numberOfFloors=0;
 
-    private Home(){
-
-    }
-    Home(int f,int u){
-        Home home = new Home();
-        home.numberOfUnits = u;
-        home.numberOfFloors = f;
+    Home(int numOfFloors,int numOfUnits){
+        numberOfUnits = numOfUnits;
+        numberOfFloors = numOfFloors;
     }
 
     int upgradeCost(int addedFloor, int addedUnit){
         return  addedUnit*50 + addedFloor*300;
     }
 
-    int addCost(int f,int u){
-        return  u*100+f*300+700;
+    int addCost(int numOfFloors,int numOfUnits){
+        return  numOfUnits*100+numOfFloors*300+700;
     }
 
-    void upgrade(int f,int u){
-        if(f == 1) numberOfFloors++;
-        if(u == 1) numberOfUnits++;
+    void upgrade(int numOfFloors,int numOfUnits){
+        if(numOfFloors == 1) numberOfFloors++;
+        if(numOfUnits == 1) numberOfUnits++;
     }
 
     double getScore(){
