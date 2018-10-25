@@ -8,11 +8,11 @@ public class Home {
     }
 
     int upgradeCost(int addedFloor, int addedUnit){
-        return  addedUnit*50 + addedFloor*300;
+        return  addedFloor*300 + addedFloor * (numberOfUnits + addedUnit)* 50 + addedUnit * numberOfFloors * 50;
     }
 
     int addCost(int numOfFloors,int numOfUnits){
-        return  numOfUnits*100+numOfFloors*300+700;
+        return  numOfUnits * 100 + numOfFloors * 300 + 700;
     }
 
     void upgrade(int numOfFloors,int numOfUnits){

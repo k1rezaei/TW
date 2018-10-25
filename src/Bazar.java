@@ -2,6 +2,8 @@ public class Bazar extends Workplace{
     private static final int UPGRADE_COST =  5000;
     private static final int ADD_COST = 6000;
     private static final int REMOVE_COST = 500;
+    public static final int MAX_LEVEL = 3;
+
 
     public Bazar() {
         super(5, 50, 20);
