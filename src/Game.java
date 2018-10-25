@@ -12,6 +12,7 @@ public class Game {
         while(true){
 
             String str = scanner.nextLine();
+            str.toLowerCase();
             String input[] = str.split(" ");
 
             /// to lower_case??
