@@ -30,4 +30,8 @@ public class Home {
         int home = 10+sumFloor+sumUnit*2+sumPerson*3;
         return home;
     }
+
+    int getPopulation(){
+        return numberOfFloors*numberOfUnits*5;
+    }
 }
