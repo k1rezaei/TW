@@ -106,14 +106,14 @@ public class Player {
         if (block == null) {
             System.out.println("not possible");
         }
-        Workplace unit = (Workplace) block.getUnit(unitId);
-        if (unit.level >= unit.maxLevel) {
+        Workplace work = (Workplace) (block.getUnit(unitId));
+        if (work.level >= work.maxLevel) {
             System.out.println("not possible");
             return;
         }
-        if (unit != null && unit.upgradeCost() <= gills) {
-            gills -= unit.upgradeCost();
-            unit.upgrade();
+        if (work != null && work.upgradeCost() <= gills) {
+            gills -= work.upgradeCost();
+            work.upgrade();
             return;
         }
         System.out.println("not possible");
@@ -123,11 +123,12 @@ public class Player {
         Block block = getBlock(blockId);
         if (block == null) {
             System.out.println("not possible");
+            return;
         }
-        Home unit = (Home) block.getUnit(unitId);
-        if (unit != null && gills >= unit.upgradeCost(floor, units)) {
-            gills -= unit.upgradeCost(floor, units);
-            unit.upgrade();
+        Home home = (Home) (block.getUnit(unitId));
+        if (home != null && gills >= home.upgradeCost(floor, units)) {
+            gills -= home.upgradeCost(floor, units);
+            home.upgrade(floor, units);
         } else {
             System.out.println("not possible");
         }
